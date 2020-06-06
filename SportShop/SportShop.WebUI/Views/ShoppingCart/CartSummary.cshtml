@@ -1,0 +1,10 @@
+﻿@model SportShop.WebUI.ViewModel.CartSummaryViewModel
+    <div class="">
+        <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
+            @Html.ActionLink("Order", "DisplayCart", "ShoppingCart", new { returnUrl = Request.Url.PathAndQuery}, new { @class = "btn btn-primary"})
+            <span class="text-primary">
+                Your Cart: @ViewBag.CountItem goods,
+                @ViewBag.TotalFromCart
+            </span>
+        </div>
+    </div>

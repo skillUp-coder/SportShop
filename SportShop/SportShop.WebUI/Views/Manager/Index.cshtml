@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SportShop.DLL.DTO.ItemManager>
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Header
+    {
+    <header class="masthead text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="intro">
+                        <h1 class="mb-5">Here you can</h1>
+                        <h1 class="typing mb-5">hi</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(x => x.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.DescriptionItem.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.Price)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(x=>item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(x=>item.DescriptionItem.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(x=>item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(x=>item.Price)
+            </td>
+            <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |
+            @Html.ActionLink("Delete", "DeleteItem", new { id=item.ItemId })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,50 @@
+﻿@model SportShop.WebUI.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<link href="~/Content/css/login-style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+<div class="container">
+    <div class="img">
+        <img src="~/Content/img/bg.svg">
+    </div>
+    <div class="login-content">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h2 class="title">Welcome</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Username</h5>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <input type="submit" class="btn" value="Login">
+            <a href="~/account/register">Register</a>
+        }
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/js/login.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

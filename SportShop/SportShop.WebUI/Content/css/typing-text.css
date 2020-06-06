@@ -1,0 +1,53 @@
+﻿
+.intro
+{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    color: white;
+    
+    
+}
+.typing
+{
+    position: relative;
+    margin-left: 10px;
+}
+.typing::after
+{
+    content: "";
+    position: absolute;
+    right: -5px;
+    width: 1px;
+    height: 100%;
+    border-right: 2px solid white;
+    animation: blink 0.5s infinite ease;
+}
+
+@keyframes blink
+{
+    0%{
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+@media screen and (max-width:1024px)
+{
+    .intro
+    {
+        display: none;
+    }
+    .typing
+    {
+        display: none;
+    }
+}
+@media screen and (max-width:768px) 
+{
+    .intro {
+        display:none;
+    }
+}

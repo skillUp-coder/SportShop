@@ -1,0 +1,90 @@
+﻿@using SportShop.WebUI.Helpers
+@model SportShop.WebUI.ViewModel.SortCategoryViewModel
+@{
+    ViewBag.Title = "Browse";
+}
+
+@Html.Action("Menu", "Menu")
+<link href="~/Content/css/style-shoes.css" rel="stylesheet" />
+<h2>Browsing Category:@Model.CategoryModel.Name</h2>
+@Html.Action("CartSummary","ShoppingCart")
+
+@foreach (var item in Model.Items)
+{
+    <div class="_container">
+        <div class="card">
+            <div class="shoeBackground">
+                <div class="gradients">
+                    <div class="gradient second" color="blue"></div>
+                    <div class="gradient" color="red"></div>
+                    <div class="gradient" color="green"></div>
+                    <div class="gradient" color="orange"></div>
+                    <div class="gradient" color="black"></div>
+                </div>
+                <h1 class="nike">nike</h1>
+                <img src="~/Content/img/shoes/logo.png" alt="" class="logo">
+                <a href="#" class="share"><i class="fas fa-share-alt"></i></a>
+
+                <img src="@item.ItemArtUrl2" alt="" class="shoe show" color="blue">
+                <img src="@item.ItemArtUrl5" alt="" class="shoe" color="red">
+                <img src="@item.ItemArtUrl3" alt="" class="shoe" color="green">
+                <img src="@item.ItemArtUrl4" alt="" class="shoe" color="orange">
+                <img src="@item.ItemArtUrl1" alt="" class="shoe" color="black">
+
+            </div>
+            <div class="info">
+                <div class="shoeName">
+                    <div>
+                        <h1 class="big">@item.ItemName</h1>
+                        <span class="new">new</span>
+                    </div>
+                    <h3 class="small"></h3>
+                </div>
+                <div class="description">
+                    <h3 class="title">Product Info</h3>
+                    <p class="text">@Model.DescriptionModel.Description</p>
+                </div>
+
+
+                <div class="buy-price">
+                    @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+                    {
+                        @Html.Hidden("itemId", item.ItemId)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <button class="buy"><i class="fas fa-shopping-cart"></i>Add to card</button>
+                    }
+
+
+                    <div class="price">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h1>@item.Price</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<div class="btn-group">
+    @Html.PageLinks(Model.Info, x => Url.Action("Browse", new { category = Model.CategoryModel.Name, name = ViewBag.ItemName, page = x }))
+</div>
+
+@section typing_footer
+{
+    <section class="call-to-action text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+
+                    <div class="intro">
+                        <h1 class="mb-5">Here you can</h1>
+                        <h1 class="typing mb-5">hi</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<script src="~/Scripts/js/shoes.js"></script>
+

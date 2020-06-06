@@ -1,0 +1,96 @@
+﻿@model SportShop.DLL.DTO.ItemManager
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.HiddenFor(x=>x.ItemId)
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div class="col-12 col-md-12 mb-2 mb-md-0">
+                        <h4>@Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "" })</h4>
+                        @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control form-control-lg" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div class="col-12 col-md-12 mb-2 mb-md-0">
+                        <h4>@Html.LabelFor(model => model.DescriptionItemId, "DescriptionItemId", htmlAttributes: new { @class = "" })</h4>
+                        @Html.DropDownList("DescriptionItemId", null, htmlAttributes: new { @class = "form-control form-control-lg" })
+                        @Html.ValidationMessageFor(model => model.DescriptionItemId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div class="col-12 col-md-12 mb-2 mb-md-0">
+                        <h4>@Html.LabelFor(model => model.ItemCategory, "ItemCategory", htmlAttributes: new { @class = "" })</h4>
+                        @Html.DropDownList("ItemCategory", null, htmlAttributes: new { @class = "form-control form-control-lg" })
+                        @Html.ValidationMessageFor(model => model.ItemCategory, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div class="col-12 col-md-12 mb-2 mb-md-0">
+                        @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Edit item name..." } })
+                        @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div class="col-12 col-md-12 mb-2 mb-md-0">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Edit price..." } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div>
+                    <div>
+                        <input type="submit" class="btn btn-block btn-lg btn-primary" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+

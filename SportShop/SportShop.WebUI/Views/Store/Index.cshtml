@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SportShop.DLL.DTO.CategoryDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Category</h2>
+<p class="lead mb-0">
+    Select from @Model.Count() categories:
+</p><br />
+<div class="row">
+
+    @foreach (var category in Model)
+    {
+        <div class="col-lg-6">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div class="features-icons-icon d-flex">
+                    <i class="icon-check m-auto text-primary"></i>
+                </div>
+                <h3>Buy @category.Name</h3>
+                <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
+                @*<a class="btn btn-primary" href="~/home/displayitems">Buy</a>*@
+                @Html.ActionLink("Buy", "Browse", new { category = category.Name }, new { @class = "btn btn-primary " })
+            </div>
+        </div>
+    }
+
+
+</div>
+
+
+
+
+
+
